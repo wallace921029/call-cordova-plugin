@@ -129,17 +129,13 @@ callCamera() {
 在 vue 文件中引入 <script type="text/javascript" src="cordova_plugins.js"></script>
 ```js
 scanCode() {
-   cordova.plugins.barcodeScanner.scan(
-     (result) => {
-         alert(
-			"Result: " + result.text + "\n" +
-			"Format: " + result.format + "\n" +
-			"Cancelled: " + result.cancelled
-		);
-     },
-     (error) => {
-         alert(error);
-     }
+  cordova.plugins.barcodeScanner.scan(
+    (result) => {
+      alert(result.text, result.format, result.cancelled)
+    },
+    (error) => {
+      alert(error);
+    }
   )
 }
 ```
@@ -147,7 +143,11 @@ scanCode() {
 ## mac 地址
 ```js
 window.MacAddress.getMacAddress(
-	(macAddress) => {alert(macAddress)},
-	(fail) => {alert(fail)}
+  (macAddress) => {
+    alert(macAddress)
+  },
+  (fail) => {
+    alert(fail)
+  }
 );
 ```
